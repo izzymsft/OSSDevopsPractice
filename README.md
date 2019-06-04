@@ -1,4 +1,18 @@
-## Instructions for Installation
+## Instructions for Installing on ACI
+
+Create a Resource Group 
+```shell
+az group create --name OSSDevopsHackathon --location eastus
+```
+Deploy the YAML for the Jenkins Container
+
+```shell
+az container create --resource-group OSSDevopsHackathon -f osshackjenkins.yaml
+```
+
+## Instructions for Installation on Kubernetes
+
+For this tutorial, I will use OSSDevopsHackathon as my resource group name, OSSDevopsNetwork and OSSDevopsSubnet01 as my virtual network and subnet names respectively. I will name the AKS cluster and the service principal OSSDevopsHackathonCluster and OSSDevopsSP03 respectively.
 
 ## Create Resource Group
 Create a Resource Group 
@@ -86,3 +100,39 @@ jenkins-special   LoadBalancer   10.58.69.202    40.121.34.56    8019:31191/TCP 
 kubernetes        ClusterIP      10.58.0.1       <none>          443/TCP          76m
 
 ```
+
+## Setting up Prometheus on the K8S cluster using the Helm
+
+Setting up and Installing Helm Locally
+
+```shell
+
+# Get Helm installation script
+curl https://raw.githubusercontent.com/helm/helm/master/scripts/get -o get_helm.sh
+
+# Make the script executable locally
+chmod 700 get_helm.sh
+
+# Execute the script
+./get_helm.sh
+
+# Initialize Helm
+helm init
+
+```
+
+Install Prometheus Under the Release Name oss-hack-release
+
+```shell
+helm install --name oss-hack-release stable/prometheus
+```
+
+If you want to uninstall the Prometheus chart, please execute the following command
+
+```shell
+
+helm delete oss-hack-release
+```
+For additional information, please refer to the Prometheus repo
+https://github.com/helm/charts/tree/master/stable/prometheus
+
