@@ -114,3 +114,13 @@ Install Prometheus Under the Release Name oss-hack-release
 ```shell
 helm install --name oss-hack-release stable/prometheus
 ```
+
+If you want to uninstall the Prometheus chart, please execute the following command
+
+```shell
+
+helm delete oss-hack-release
+```
+For additional information, please refer to the Prometheus repo
+https://github.com/helm/charts/tree/master/stable/prometheus
+
