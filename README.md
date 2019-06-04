@@ -70,3 +70,19 @@ The commands below will deploy the jenkins:lts image to the kubernetes cluster a
 kubectl apply -f jenkins-deployment.yml
 kubectl apply -f jenkins-services.yml 
 ```
+
+## Accessing the Jenkins App
+
+Once the app is up and running you should be able to get the service IPs by running the following commands:
+
+Then you can access it on port 80 for the jenkins service and on port 8019 on the jenkins-special service
+
+```shell
+kubectl get services
+NAME              TYPE           CLUSTER-IP      EXTERNAL-IP     PORT(S)          AGE
+jenkins           LoadBalancer   10.58.48.21     40.87.121.55    80:30725/TCP     19m
+jenkins-jnlp      ClusterIP      10.58.161.130   <none>          50000/TCP        19m
+jenkins-special   LoadBalancer   10.58.69.202    40.121.34.56    8019:31191/TCP   12m
+kubernetes        ClusterIP      10.58.0.1       <none>          443/TCP          76m
+
+```
