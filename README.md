@@ -89,7 +89,7 @@ kubernetes        ClusterIP      10.58.0.1       <none>          443/TCP        
 
 ```
 
-## Setting up a Prometheus deployment on a Kubernetes cluster using the Helm package manager
+## Setting up Prometheus on the K8S cluster using the Helm
 
 Setting up and Installing Helm Locally
 
