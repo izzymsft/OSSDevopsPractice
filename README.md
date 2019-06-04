@@ -1,4 +1,16 @@
-## Instructions for Installation
+## Instructions for Installing on ACI
+
+Create a Resource Group 
+```shell
+az group create --name OSSDevopsHackathon --location eastus
+```
+Deploy the YAML for the Jenkins Container
+
+```shell
+az container create --resource-group OSSDevopsHackathon -f osshackjenkins.yaml
+```
+
+## Instructions for Installation on Kubernetes
 
 For this tutorial, I will use OSSDevopsHackathon as my resource group name, OSSDevopsNetwork and OSSDevopsSubnet01 as my virtual network and subnet names respectively. I will name the AKS cluster and the service principal OSSDevopsHackathonCluster and OSSDevopsSP03 respectively.
 
