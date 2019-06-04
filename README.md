@@ -88,3 +88,29 @@ jenkins-special   LoadBalancer   10.58.69.202    40.121.34.56    8019:31191/TCP 
 kubernetes        ClusterIP      10.58.0.1       <none>          443/TCP          76m
 
 ```
+
+## Setting up a Prometheus deployment on a Kubernetes cluster using the Helm package manager
+
+Setting up and Installing Helm Locally
+
+```shell
+
+# Get Helm installation script
+curl https://raw.githubusercontent.com/helm/helm/master/scripts/get -o get_helm.sh
+
+# Make the script executable locally
+chmod 700 get_helm.sh
+
+# Execute the script
+./get_helm.sh
+
+# Initialize Helm
+helm init
+
+```
+
+Install Prometheus Under the Release Name oss-hack-release
+
+```shell
+helm install --name oss-hack-release stable/prometheus
+```
