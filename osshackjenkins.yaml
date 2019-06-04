@@ -1,0 +1,36 @@
+additional_properties: {}
+apiVersion: '2018-10-01'
+identity: null
+location: eastus
+name: ossdevops2020
+properties:
+  containers:
+  - name: osshackjenkins
+    properties:
+      environmentVariables:
+      - name: JAVA_OPTS
+        value: '-Djenkins.install.runSetupWizard=false'
+      - name: PROJECT_NAME
+        value: 'OSSHackathon2019'
+      image: jenkins/jenkins:lts
+      ports:
+      - port: 8080
+        protocol: TCP
+      - port: 50000
+        protocol: TCP
+      resources:
+        requests:
+          cpu: 2.0
+          memoryInGB: 2.5
+  ipAddress:
+    dnsNameLabel: oss2020
+    ports:
+    - port: 8080
+      protocol: TCP
+    - port: 50000
+      protocol: TCP
+    type: Public
+  osType: Linux
+  restartPolicy: OnFailure
+tags: {}
+type: Microsoft.ContainerInstance/containerGroups
