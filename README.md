@@ -1,5 +1,7 @@
 ## Instructions for Installation
 
+For this tutorial, I will use OSSDevopsHackathon as my resource group name, OSSDevopsNetwork and OSSDevopsSubnet01 as my virtual network and subnet names respectively. I will name the AKS cluster and the service principal OSSDevopsHackathonCluster and OSSDevopsSP03 respectively.
+
 ## Create Resource Group
 Create a Resource Group 
 ```shell
