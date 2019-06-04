@@ -10,6 +10,17 @@ Deploy the YAML for the Jenkins Container
 az container create --resource-group OSSDevopsHackathon -f osshackjenkins.yaml
 ```
 
+Describe the Deployed Container to Get Details of the FQDN of the Web App
+
+```shell
+
+az container show -g OSSDevopsHackathon --name ossdevops2020
+
+Then you should be able to browse to port 8080 on that host
+
+http://oss2020.eastus.azurecontainer.io:8080/
+
+```
 ## Instructions for Installation on Kubernetes
 
 For this tutorial, I will use OSSDevopsHackathon as my resource group name, OSSDevopsNetwork and OSSDevopsSubnet01 as my virtual network and subnet names respectively. I will name the AKS cluster and the service principal OSSDevopsHackathonCluster and OSSDevopsSP03 respectively.
