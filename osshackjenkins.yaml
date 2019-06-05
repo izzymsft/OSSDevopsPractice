@@ -1,36 +1,36 @@
 additional_properties: {}
-apiVersion: '2018-10-01'
+apiVersion: '2018-10-01' # The API version
 identity: null
-location: eastus
-name: ossdevops2020
+location: eastus # this is the location of the resource. Change it to match your specifications
+name: ossdevops2020 # This is the name of the container group deployment. Change it to match your specifications 
 properties:
   containers:
-  - name: osshackjenkins
+  - name: osshackjenkins # This is your container name. Change it to match your specifications.
     properties:
-      environmentVariables:
+      environmentVariables: # These are the environment variables. The "name" is the key and the "value" is the value of the ENV variable.
       - name: JAVA_OPTS
         value: '-Djenkins.install.runSetupWizard=false'
       - name: PROJECT_NAME
         value: 'OSSHackathon2019'
       image: jenkins/jenkins:lts
-      ports:
+      ports: # We need TCP ports 8080 and 50000 exposed so we do that here
       - port: 8080
-        protocol: TCP
+        protocol: TCP # The network protocol to use.  Allowed values: TCP, UDP
       - port: 50000
-        protocol: TCP
+        protocol: TCP # The network protocol to use.  Allowed values: TCP, UDP
       resources:
         requests:
-          cpu: 2.0
-          memoryInGB: 2.5
+          cpu: 2.0 # The required number of CPU cores of the containers, accurate to one decimal place.  Default: 1.0
+          memoryInGB: 2.5 # The required memory of the containers in GB. Setting the memory available for the running container to 2.5GBs
   ipAddress:
-    dnsNameLabel: oss2020
-    ports:
-    - port: 8080
-      protocol: TCP
+    dnsNameLabel: oss2020 #  The dns name label for container group with public IP. This is the DNS name for reaching the deployed Jenkins application
+    ports: # These ports need to match what is routing into the container as specified above
+    - port: 8080 
+      protocol: TCP # The network protocol to use.  Allowed values: TCP, UDP
     - port: 50000
-      protocol: TCP
+      protocol: TCP # The network protocol to use.  Allowed values: TCP, UDP
     type: Public
   osType: Linux
-  restartPolicy: OnFailure
+  restartPolicy: OnFailure # Restart policy for all containers within the container group. Allowed values: Always, Never, OnFailure.Default: Always.
 tags: {}
 type: Microsoft.ContainerInstance/containerGroups
