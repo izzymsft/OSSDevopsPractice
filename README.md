@@ -24,7 +24,9 @@ Describe the Deployed Container to Get Details of the FQDN of the Web App
 
 az container show -g OSSDevopsHackathon --name ossdevops2020
 
-Then you should be able to browse to port 8080 on that host
+Then you should be able to browse to port 8080 on that host based on the region
+
+http://<dnsName>.<location>.azurecontainer.io:<httpPort>
 
 http://oss2020.eastus.azurecontainer.io:8080/
 
