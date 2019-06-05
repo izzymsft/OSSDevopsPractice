@@ -1,6 +1,14 @@
 ## Instructions for Installing on ACI
 
-Create a Resource Group 
+Checkout fhe source code from git
+
+```shell
+git clone git@github.com:izzymsft/OSSDevopsPractice.git
+
+cd OSSDevopsPractice
+
+```
+Create a Resource Group for the Resources
 ```shell
 az group create --name OSSDevopsHackathon --location eastus
 ```
